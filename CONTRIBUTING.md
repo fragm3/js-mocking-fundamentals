@@ -33,6 +33,5 @@ Please checkout the [the open issues][issues]
 Also, please watch the repo and respond to questions/bug reports/feature
 requests! Thanks!
 
-[egghead]:
-  https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github
+[egghead]: https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github
 [issues]: https://github.com/kentcdodds/js-mocking-fundamentals/issues

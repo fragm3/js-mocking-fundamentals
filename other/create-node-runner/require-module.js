@@ -1,1 +1,1 @@
-module.exports.require = modPath => require(modPath)
+module.exports.require = (modPath) => require(modPath);

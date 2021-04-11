@@ -1,29 +1,24 @@
-const thumbWar = require('../thumb-war')
-const utils = require('../utils')
+const thumbWar = require('../thumb-war');
+const utils = require('../utils');
 
 test('returns winner', () => {
-  const originalGetWinner = utils.getWinner
-  utils.getWinner = jest.fn((p1, p2) => p1)
+  const originalGetWinner = utils.getWinner;
+  utils.getWinner = jest.fn((p1, p2) => p1);
+  const winner = thumbWar('A', 'B');
+  console.log(utils.getWinner.mock.calls);
 
-  const winner = thumbWar('Kent C. Dodds', 'Ken Wheeler')
-  expect(winner).toBe('Kent C. Dodds')
   expect(utils.getWinner.mock.calls).toEqual([
-    ['Kent C. Dodds', 'Ken Wheeler'],
-    ['Kent C. Dodds', 'Ken Wheeler']
-  ])
-  // could also do these assertions:
-  expect(utils.getWinner).toHaveBeenCalledTimes(2)
-  expect(utils.getWinner).toHaveBeenNthCalledWith(
-    1,
-    'Kent C. Dodds',
-    'Ken Wheeler'
-  )
-  expect(utils.getWinner).toHaveBeenNthCalledWith(
-    2,
-    'Kent C. Dodds',
-    'Ken Wheeler'
-  )
+    ['A', 'B'],
+    ['A', 'B'],
+  ]);
+  expect(winner).toBe('A');
+  expect(utils.getWinner).toHaveBeenCalledTimes(2);
 
-  // cleanup
-  utils.getWinner = originalGetWinner
-})
+  expect(utils.getWinner).toHaveBeenCalledWith('A', 'B');
+
+  expect(utils.getWinner).toHaveBeenNthCalledWith(1, 'A', 'B');
+
+  expect(utils.getWinner).toHaveBeenNthCalledWith(2, 'A', 'B');
+
+  utils.getWinner = originalGetWinner;
+});
