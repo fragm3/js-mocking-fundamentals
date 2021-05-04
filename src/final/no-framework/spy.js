@@ -1,6 +1,6 @@
 const assert = require('assert');
-const thumbWar = require('../thumb-war');
-const utils = require('../utils');
+const thumbWar = require('../../thumb-war');
+const utils = require('../../utils');
 
 function fn(impl = () => {}) {
   const mockFn = (...args) => {

@@ -1,7 +1,7 @@
-const thumbWar = require('../thumb-war');
-const utilsMock = require('../utils');
+const thumbWar = require('../../thumb-war');
+const utilsMock = require('../../utils');
 
-jest.mock('../utils');
+jest.mock('../../utils');
 
 test('returns winner', () => {
   const winner = thumbWar('Kent C. Dodds', 'Ken Wheeler');

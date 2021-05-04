@@ -1,4 +1,4 @@
-const utilsPath = require.resolve('../utils');
+const utilsPath = require.resolve('../../utils');
 require.cache[utilsPath] = {
   id: utilsPath,
   filename: utilsPath,
@@ -18,8 +18,8 @@ function fn(impl = () => {}) {
 }
 
 const assert = require('assert');
-const thumbWar = require('../thumb-war');
-const utils = require('../utils');
+const thumbWar = require('../../thumb-war');
+const utils = require('../../utils');
 
 const winner = thumbWar('Kent C. Dodds', 'Ken Wheeler');
 assert.strictEqual(winner, 'Kent C. Dodds');

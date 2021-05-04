@@ -1,5 +1,5 @@
-const thumbWar = require('../thumb-war');
-const utils = require('../utils');
+const thumbWar = require('../../thumb-war');
+const utils = require('../../utils');
 
 test('returns winner', () => {
   jest.spyOn(utils, 'getWinner');
