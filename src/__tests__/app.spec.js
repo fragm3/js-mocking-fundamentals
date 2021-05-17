@@ -1,15 +1,16 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-
-const App = () => <h1>Hello world React!</h1>;
+import { render, screen } from '@testing-library/react';
+//import userEvent from '@testing-library/user-event';
+import { simpleFireEvent } from '../rtl/simpleFireEvent';
+import userEvent from '../rtl/userEvent';
+import { App } from '../App';
 
 describe('App Component', function () {
   it('should have hello world message', function () {
-    let { getByText } = render(<App />);
-    expect(getByText('Hello world React!')).toMatchInlineSnapshot(`
-      <h1>
-        Hello world React!
-      </h1>
-    `);
+    const onClickFn = jest.fn();
+    render(<App onClick={onClickFn} />);
+    const button = screen.getByText(/btn/i);
+    userEvent.click(button);
+    expect(onClickFn).toHaveBeenCalledTimes(1);
   });
 });

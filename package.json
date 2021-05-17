@@ -7,7 +7,9 @@
   "devDependencies": {
     "@babel/preset-env": "^7.14.2",
     "@babel/preset-react": "^7.13.13",
+    "@testing-library/dom": "^7.31.0",
     "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^13.1.9",
     "@types/jest": "^26.0.23",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
