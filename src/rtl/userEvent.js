@@ -7,8 +7,12 @@ function isElementType(element, tag) {
 }
 
 function hover(node) {
-  fireEvent.mouseOver(node);
-  fireEvent.mouseMove(node);
+  // fireEvent.mouseOver(node);
+  // fireEvent.mouseMove(node);
+
+  simpleFireEvent(node, 'mouseOver');
+  simpleFireEvent(node, 'mouseMove');
+
   //more things happen here
 }
 

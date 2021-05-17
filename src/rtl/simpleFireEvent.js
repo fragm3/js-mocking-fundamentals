@@ -8,10 +8,10 @@ export function simpleFireEvent(element, eventName) {
   // get event configs from eventMap
   const { EventType, defaultInit } = eventMap[eventName];
 
-  // create event
+  // create event object
   const event = createEvent(eventName.toLowerCase(), element, { defaultInit, EventType });
 
-  // fire event
+  // fire/dispatch custom event, then event handlers react on it
   return element.dispatchEvent(event);
 }
 
@@ -20,9 +20,10 @@ function createEvent(eventName, element, { defaultInit, EventType }) {
   if (!element) {
     throw new Error('Please provide a DOM element.');
   }
-
   const window = getWindowFromNode(element);
-  const EventConstructor = window[EventType] || window.Event;
-  const event = new EventConstructor(eventName, defaultInit);
+  const Event = window.Event;
+
+  // const event = new Event('click', {bubbles: true, cancelable: true})
+  const event = new Event(eventName, defaultInit);
   return event;
 }
