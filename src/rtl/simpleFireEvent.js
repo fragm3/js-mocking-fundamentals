@@ -22,8 +22,7 @@ function createEvent(eventName, element, { defaultInit, EventType }) {
   }
 
   const window = getWindowFromNode(element);
-  const EventConstructor = window[EventType];
-  console.log(EventConstructor);
+  const EventConstructor = window[EventType] || window.Event;
   const event = new EventConstructor(eventName, defaultInit);
   return event;
 }

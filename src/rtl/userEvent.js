@@ -1,5 +1,5 @@
 import { fireEvent } from './fireEvent';
-import { simpleFireEvent } from '../rtl/simpleFireEvent';
+import { simpleFireEvent } from './simpleFireEvent';
 
 function isElementType(element, tag) {
   const elementTag = element.tagName.toLowerCase();
@@ -21,11 +21,16 @@ function clickBooleanElement(node) {
 }
 
 function clickElement(node) {
-  hover(node);
-  fireEvent.mouseDown(node);
-  fireEvent.focus(node);
-  fireEvent.pointerUp(node);
-  fireEvent.click(node);
+  // hover(node);
+  // fireEvent.mouseDown(node);
+  // fireEvent.focus(node);
+  // fireEvent.pointerUp(node);
+  // fireEvent.click(node);
+
+  simpleFireEvent(node, 'mouseDown');
+  simpleFireEvent(node, 'focus');
+  simpleFireEvent(node, 'pointerUp');
+  simpleFireEvent(node, 'click');
 }
 
 function click(node) {
