@@ -16,10 +16,10 @@ function spyOn(object, prop) {
   const originalValue = object[prop];
   object[prop] = fn();
   object[prop].mockRestore = () => (object[prop] = originalValue);
+  return object[prop];
 }
 
-spyOn(utils, 'getWinner');
-utils.getWinner.mockImplementation((p1, p2) => p1);
+spyOn(utils, 'getWinner').mockImplementation((p1, p2) => p1);
 
 const winner = thumbWar('A', 'B');
 
