@@ -1,12 +1,19 @@
 const utilsPath = require.resolve('../../utils');
-require.cache[utilsPath] = {
-  id: utilsPath,
-  filename: utilsPath,
-  loaded: true,
-  exports: {
-    getWinner: fn((p1, p2) => p1),
-  },
-};
+
+// Initialize the require.cache to have our mock version of the utils module.
+// So that when the utils module is required, it gets our require.cache version
+// rather than actually requiring the file.
+
+require.cache[utilsPath] =
+  //resembles a module
+  {
+    id: utilsPath,
+    filename: utilsPath,
+    loaded: true,
+    exports: {
+      getWinner: fn((p1, p2) => p1),
+    },
+  };
 
 function fn(impl = () => {}) {
   const mockFn = (...args) => {

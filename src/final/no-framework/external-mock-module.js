@@ -1,4 +1,4 @@
-require('../../__no-framework-mocks__/utils'); // prime the cache
+require('../../__no-framework-mocks__/utils'); // store mock module in cache
 const utilsPath = require.resolve('../../utils');
 const mockUtilsPath = require.resolve('../../__no-framework-mocks__/utils');
 require.cache[utilsPath] = require.cache[mockUtilsPath];
