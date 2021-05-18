@@ -2,7 +2,7 @@ const assert = require('assert');
 const thumbWar = require('../../thumb-war');
 const utils = require('../../utils');
 
-function fn(impl = () => {}) {
+function fn(impl) {
   const mockFn = (...args) => {
     mockFn.mock.calls.push(args);
     return impl(...args);
@@ -14,11 +14,12 @@ function fn(impl = () => {}) {
 
 function spyOn(object, prop) {
   const originalValue = object[prop];
-  object[prop] = fn();
+  object[prop] = fn(originalValue);
   object[prop].mockRestore = () => (object[prop] = originalValue);
 }
 
 spyOn(utils, 'getWinner');
+
 utils.getWinner.mockImplementation((p1, p2) => p1);
 
 const winner = thumbWar('A', 'B');
