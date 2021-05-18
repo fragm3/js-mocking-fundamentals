@@ -1,5 +1,5 @@
-import { fireEvent } from './fireEvent';
-import { simpleFireEvent } from './simpleFireEvent';
+// import { fireEvent } from './fireEvent';
+import { fireEvent } from './simpleFireEvent';
 
 function isElementType(element, tag) {
   const elementTag = element.tagName.toLowerCase();
@@ -10,8 +10,8 @@ function hover(node) {
   // fireEvent.mouseOver(node);
   // fireEvent.mouseMove(node);
 
-  simpleFireEvent(node, 'mouseOver');
-  simpleFireEvent(node, 'mouseMove');
+  fireEvent(node, 'mouseOver');
+  fireEvent(node, 'mouseMove');
 
   //more things happen here
 }
@@ -25,16 +25,16 @@ function clickBooleanElement(node) {
 }
 
 function clickElement(node) {
-  // hover(node);
+  hover(node);
   // fireEvent.mouseDown(node);
   // fireEvent.focus(node);
   // fireEvent.pointerUp(node);
   // fireEvent.click(node);
 
-  simpleFireEvent(node, 'mouseDown');
-  simpleFireEvent(node, 'focus');
-  simpleFireEvent(node, 'pointerUp');
-  simpleFireEvent(node, 'click');
+  fireEvent(node, 'mouseDown');
+  fireEvent(node, 'focus');
+  fireEvent(node, 'pointerUp');
+  fireEvent(node, 'click');
 }
 
 function click(node) {

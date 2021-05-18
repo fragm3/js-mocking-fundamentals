@@ -4,7 +4,7 @@ function getWindowFromNode(node) {
   return node.ownerDocument.defaultView;
 }
 
-export function simpleFireEvent(element, eventName) {
+export function fireEvent(element, eventName) {
   // get event configs from eventMap
   const { EventType, defaultInit } = eventMap[eventName];
 

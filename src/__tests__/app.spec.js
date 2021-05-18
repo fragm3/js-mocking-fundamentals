@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 //import userEvent from '@testing-library/user-event';
-import { simpleFireEvent } from '../rtl/simpleFireEvent';
+import { fireEvent } from '../rtl/simpleFireEvent';
 import userEvent from '../rtl/userEvent';
 
 const App = ({ onClick }) => (
@@ -18,7 +18,7 @@ test('should have hello world message', function () {
 
   const button = screen.getByText(/btn/i);
 
-  // simpleFireEvent(button, 'click');
+  // fireEvent(button, 'click');
   userEvent.click(button);
 
   expect(onClickFn).toHaveBeenCalledTimes(1);
