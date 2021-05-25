@@ -5,6 +5,7 @@ const utils = require('../utils');
 function fn(impl = () => {}) {
   const mockFn = (...args) => {
     mockFn.mock.calls.push(args);
+    // returns value from mock function
     return impl(...args);
   };
   mockFn.mock = {
@@ -13,7 +14,10 @@ function fn(impl = () => {}) {
   return mockFn;
 }
 
+// store original function
 const originalGetWinner = utils.getWinner;
+
+// change implementation of getWinner
 utils.getWinner = fn((p1, p2) => p1);
 
 const winner = thumbWar('A', 'B');
